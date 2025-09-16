@@ -21,10 +21,10 @@ public class Entregas {
     private Long idEntregas;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_tipo_usuario")
-    private TipoUsuario IdTipoUsuario;
+    private TipoUsuario tipoUsuario;
     @ManyToOne
     @JoinColumn(name = "id_endereco")
-    private Enderecos IdEndereco;
+    private Enderecos Endereco;
     @Column(name = "descricaoProduto")
     private String descricaoProduto;
     @Column (name = "status", nullable = false, columnDefinition = "TEXT")

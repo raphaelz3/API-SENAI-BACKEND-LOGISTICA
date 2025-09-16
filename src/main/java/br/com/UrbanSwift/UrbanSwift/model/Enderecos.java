@@ -15,17 +15,17 @@ import lombok.Setter;
 public class Enderecos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_endereco",  unique = true, nullable = false)
+    @Column(name = "id_endereco",  unique = true, nullable = false, columnDefinition = "TEXT")
     private Integer idEndereco;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "tipo_usuario_id")
-    private TipoUsuario tipoUsuarioId;
+    private TipoUsuario tipoUsuario;
     @Column (name = "logradouro",  nullable = false, columnDefinition = "TEXT")
     private String logradouro;
     @Column (name = "numero", nullable = false, columnDefinition = "TEXT")
     private Integer numero;
     @Column (name = "cidade",  nullable = false, columnDefinition = "TEXT")
     private String cidade;
-    @Column (name = "cep",  nullable = false, columnDefinition = "TEXT")
+    @Column (name = "cep",  nullable = false, length = 8)
     private String cep;
 }

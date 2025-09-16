@@ -28,6 +28,6 @@ public class Usuario {
     //O "optional" define se é obrigatorio a chave primaria
     @ManyToOne(fetch = FetchType.EAGER, optional = false)//Aqui definimos uma FK, onde nosso atributo é do tipo da classe que ele recebe a chave
     @JoinColumn(name = "id_tipo_usuario")
-    private TipoUsuario IdTipoUsuario;//a FK é do tipo TipoUsuario, pois é chave estrangeira dessa tabela
+    private TipoUsuario tipoUsuario;//a FK é do tipo TipoUsuario, pois é chave estrangeira dessa tabela
 
 }

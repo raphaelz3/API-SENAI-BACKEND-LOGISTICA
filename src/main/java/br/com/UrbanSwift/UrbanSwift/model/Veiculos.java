@@ -19,7 +19,7 @@ public class Veiculos {
     private Integer idVeiculo;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_tipo_usuario")
-    private TipoUsuario IdTipoUsuarios;
+    private TipoUsuario tipoUsuarios;
     @Column(name = "placa",  nullable = false, columnDefinition = "TEXT", unique = true)
     private String placa;
     @Column (name = "modelo", nullable = false, columnDefinition = "TEXT")

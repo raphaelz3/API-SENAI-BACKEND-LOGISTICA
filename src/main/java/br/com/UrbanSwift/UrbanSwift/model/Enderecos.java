@@ -17,8 +17,15 @@ public class Enderecos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_endereco",  unique = true, nullable = false)
     private Integer idEndereco;
-
-
-    @Column(name = "id_cliente")
-    private Integer idCliente;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "tipo_usuario_id")
+    private TipoUsuario tipoUsuarioId;
+    @Column (name = "logradouro",  nullable = false, columnDefinition = "TEXT")
+    private String logradouro;
+    @Column (name = "numero", nullable = false, columnDefinition = "TEXT")
+    private Integer numero;
+    @Column (name = "cidade",  nullable = false, columnDefinition = "TEXT")
+    private String cidade;
+    @Column (name = "cep",  nullable = false, columnDefinition = "TEXT")
+    private String cep;
 }

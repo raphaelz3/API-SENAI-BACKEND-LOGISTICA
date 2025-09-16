@@ -16,8 +16,8 @@ import lombok.Setter;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "usuario_id", nullable = false)
-    private Integer id;
+    @Column(name = "id_usuario", nullable = false)
+    private Integer idUsuario;
     @Column(name = "nome_completo",  nullable = false, columnDefinition = "TEXT")
     private String nomeCompleto;
     @Column(name = "email",  nullable = false, columnDefinition = "TEXT", unique = true)
@@ -27,7 +27,7 @@ public class Usuario {
     //EAGER - Usa mais memoria, pois carrega todos os dados de uma vez.
     //O "optional" define se é obrigatorio a chave primaria
     @ManyToOne(fetch = FetchType.EAGER, optional = false)//Aqui definimos uma FK, onde nosso atributo é do tipo da classe que ele recebe a chave
-    @JoinColumn(name = "tipo_usuario_id")
-    private TipoUsuario tipoUsuarioId;//a FK é do tipo TipoUsuario, pois é chave estrangeira dessa tabela
+    @JoinColumn(name = "id_tipo_usuario")
+    private TipoUsuario IdTipoUsuario;//a FK é do tipo TipoUsuario, pois é chave estrangeira dessa tabela
 
 }

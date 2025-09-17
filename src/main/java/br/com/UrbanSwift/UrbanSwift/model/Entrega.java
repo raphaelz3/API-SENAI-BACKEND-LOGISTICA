@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.OffsetDateTime;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "entregas")
-public class Entregas {
+public class Entrega {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_entregas", nullable = false)
@@ -25,7 +24,7 @@ public class Entregas {
     private TipoUsuario tipoUsuario;
     @ManyToOne
     @JoinColumn(name = "id_endereco")
-    private Enderecos Endereco;
+    private Endereco Endereco;
     @Column(name = "descricaoProduto")
     private String descricaoProduto;
     @Column (name = "status", nullable = false, columnDefinition = "TEXT")

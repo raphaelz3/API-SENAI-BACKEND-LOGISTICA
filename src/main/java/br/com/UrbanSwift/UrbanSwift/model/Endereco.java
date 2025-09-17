@@ -12,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "enderecos")
-public class Enderecos {
+public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_endereco",  unique = true, nullable = false, columnDefinition = "TEXT")
+    @Column(name = "id_endereco",  unique = true, nullable = false)
     private Integer idEndereco;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "tipo_usuario_id")
@@ -26,6 +26,8 @@ public class Enderecos {
     private Integer numero;
     @Column (name = "cidade",  nullable = false, columnDefinition = "TEXT")
     private String cidade;
+    @Column (name = "bairro",  nullable = false, columnDefinition = "TEXT")
+    private String bairro;
     @Column (name = "cep",  nullable = false, length = 8)
     private String cep;
 }

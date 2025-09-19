@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VeiculosService {
+public class VeiculoService {
     private final VeiculosRepository veiculosRepository;
 
-    public VeiculosService(VeiculosRepository user) {
+    public VeiculoService(VeiculosRepository user) {
         veiculosRepository = user;
     }
 

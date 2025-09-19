@@ -23,13 +23,23 @@ public class EnderecoController {
     public EnderecoController(EnderecoService ende) {
         enderecoService = ende;
     }
-    //Listar Todos
+    //Listar
     @GetMapping
     @Operation(summary = "Listar Todos os Endereços", description = "Essa função lista todos endereços")
     public ResponseEntity<List<Endereco>> listarTodosEnderecos(){
         List<Endereco>  enderecos = enderecoService.listarTodosEnderecos();
         return ResponseEntity.ok(enderecos);
     }
+    @GetMapping("/{id}")
+    @Operation(summary = "Listar Endereço por ID", description = "Essa função lista endereço por ID")
+    public ResponseEntity<?> buscarEndereçosPorId(@PathVariable Integer id){
+        Endereco endereco = enderecoService.buscarEnderecoPorId(id);
+        if(endereco == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(id + "Não Encontrado");
+        }
+        return ResponseEntity.ok(endereco);
+    }
+
     //Criar
     @PostMapping
     @Operation(summary = "Cadastrar Endereço", description = "Função para cadastrar Endereço")

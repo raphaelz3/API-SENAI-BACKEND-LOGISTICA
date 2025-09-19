@@ -1,5 +1,6 @@
 package br.com.UrbanSwift.UrbanSwift.controller;
 
+import br.com.UrbanSwift.UrbanSwift.model.Endereco;
 import br.com.UrbanSwift.UrbanSwift.model.Entrega;
 import br.com.UrbanSwift.UrbanSwift.service.EntregaService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +28,16 @@ public class EntregaController {
     @Operation(summary = "Listar Todas as entregas", description = "Essa função lista todas entregas")
     public ResponseEntity<List<Entrega>> listarTodasEntregas(){
         List<Entrega>  entrega = entregaService.listarTodasEntregas();
+        return ResponseEntity.ok(entrega);
+    }
+    //Listar ID
+    @GetMapping("/{id}")
+    @Operation(summary = "Listar Endereço por ID", description = "Essa função lista endereço por ID")
+    public ResponseEntity<?> buscarEntregaPorId(@PathVariable Integer id){
+        Entrega entrega = entregaService.buscarEntregaPorId(id);
+        if(entrega == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(id + "Não Encontrado");
+        }
         return ResponseEntity.ok(entrega);
     }
     //Criar

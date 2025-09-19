@@ -1,5 +1,6 @@
 package br.com.UrbanSwift.UrbanSwift.controller;
 
+import br.com.UrbanSwift.UrbanSwift.model.Entrega;
 import br.com.UrbanSwift.UrbanSwift.model.Usuario;
 import br.com.UrbanSwift.UrbanSwift.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +28,16 @@ public class UsuarioController {
     @Operation(summary = "Listar Todas os Usuario", description = "Essa função lista todos Usuario")
     public ResponseEntity<List<Usuario>> listarTodosUsuario(){
         List<Usuario>  usuario = usuarioService.listarTodosUsuarios();
+        return ResponseEntity.ok(usuario);
+    }
+    //Listar ID
+    @GetMapping("/{id}")
+    @Operation(summary = "Listar Usuario por ID", description = "Essa função buscar usuario por ID")
+    public ResponseEntity<?> buscarUsuarioPorId(@PathVariable Integer id){
+        Usuario usuario = usuarioService.buscarUsuarioPorId(id);
+        if(usuario == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(id + "Não Encontrado");
+        }
         return ResponseEntity.ok(usuario);
     }
     //Criar

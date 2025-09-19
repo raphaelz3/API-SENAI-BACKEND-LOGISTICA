@@ -20,16 +20,16 @@ public class VeiculosService {
         return veiculosRepository.findAll();
     }
     //Buscar por ID
-    public Veiculo buscarVeiculosPorId(Integer idVeiculos) {
+    public Veiculo buscarVeiculoPorId(Integer idVeiculos) {
         return veiculosRepository.findById(idVeiculos).orElse(null);
     }
     //Criar
-    public Veiculo cadastrarVeiculos(Veiculo veiculos) {
+    public Veiculo cadastrarVeiculo(Veiculo veiculos) {
         return veiculosRepository.save(veiculos);
     }
     //Deletar
     public Veiculo deletarVeiculoPorId(Integer idVeiculo) {
-        Veiculo c =  buscarVeiculosPorId(idVeiculo);
+        Veiculo c =  buscarVeiculoPorId(idVeiculo);
         if(c == null){
             return null;
         }
@@ -37,7 +37,7 @@ public class VeiculosService {
         return c;
     }
     //Editar
-    public Veiculo atualizarVeiculosPorId(Integer idVeiculo,  Veiculo veiculo) {
+    public Veiculo atualizarVeiculoPorId(Integer idVeiculo,  Veiculo veiculo) {
         Veiculo c =  buscarVeiculoPorId(idVeiculo);
         if(c == null){
             return null;

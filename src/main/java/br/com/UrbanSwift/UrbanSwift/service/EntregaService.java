@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EntregasService {
+public class EntregaService {
     private final EntregasRepository entregasRepository;
 
-    public EntregasService(EntregasRepository entr) {
+    public EntregaService(EntregasRepository entr) {
         entregasRepository = entr;
     }
 

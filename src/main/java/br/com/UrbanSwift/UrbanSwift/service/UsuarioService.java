@@ -3,6 +3,7 @@ package br.com.UrbanSwift.UrbanSwift.service;
 
 import br.com.UrbanSwift.UrbanSwift.model.Usuario;
 import br.com.UrbanSwift.UrbanSwift.repository.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
 @Service
 public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder encoder;
 
-    public UsuarioService(UsuarioRepository user) {
+    public UsuarioService(UsuarioRepository user, PasswordEncoder encoder) {
         usuarioRepository = user;
+        this.encoder = encoder;
     }
 
     public List<Usuario> listarTodosUsuarios() {

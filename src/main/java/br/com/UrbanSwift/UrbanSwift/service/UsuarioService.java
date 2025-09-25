@@ -27,6 +27,10 @@ public class UsuarioService {
     }
     //Criar
     public Usuario cadastrarUsuario(Usuario usuario) {
+
+        String senhaCriptografada = encoder.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
+
         return usuarioRepository.save(usuario);
     }
     //Deletar

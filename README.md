@@ -1,39 +1,138 @@
-# 🚚 API de Logística - SENAI (com Segurança JWT)
+# 🚚 API - UrbanSwift (Back-End Logística)
 
-Projeto desenvolvido durante o curso de Backend no SENAI, simulando operações de logística e controle de entregas.  
-Nesta versão, foi implementada **autenticação e autorização com JWT**, garantindo acesso seguro aos endpoints.
+Este projeto foi desenvolvido como **segundo módulo do curso de Back-End no SENAI**.  
+O objetivo foi construir uma API REST para gerenciamento de operações logísticas, contemplando **usuários, tipos de usuários, veículos, endereços e entregas** — tudo protegido com **autenticação e autorização utilizando JWT**.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
-- Java 24
-- Spring Boot
-- Spring Data JPA
-- PostgreSQL
-- Spring Security + JWT
-- Swagger (OpenAPI)
-- Maven
+
+| Tecnologia | Versão | Descrição |
+|-----------|--------|-----------|
+| Java | **24** | Linguagem principal do projeto |
+| Spring Boot | 3.x | Framework para desenvolvimento da API |
+| Spring Security | 6.x | Controle de autenticação e autorização |
+| JWT (JSON Web Token) | - | Segurança baseada em token |
+| PostgreSQL | 15+ | Banco de dados relacional |
+| Swagger / OpenAPI | - | Documentação interativa da API |
 
 ---
 
-## 🔐 Segurança (JWT)
-A API utiliza **Token JWT** para autenticação.  
-Fluxo básico:
-1. Usuário realiza login  
-2. API retorna o token de autenticação  
-3. O token deve ser enviado no header `Authorization: Bearer <token>` em cada requisição protegida  
+## 🔐 Segurança com JWT
 
-Endpoints de login/registro ficam públicos. CRUDs são protegidos por roles.
+Toda requisição aos endpoints (exceto login) exige um **token JWT** válido.
+
+### Fluxo de Autenticação
+1. Enviar **e-mail** e **senha** para o endpoint de login.
+2. Receber um **JWT** gerado automaticamente.
+3. Adicionar o token no header das requisições:
+
+```
+Authorization: Bearer SEU_TOKEN_AQUI
+```
+
+Sem o token → **acesso negado** ✅
 
 ---
 
-## 📦 Endpoints (Principais Grupos)
-| Recurso | Descrição |
-|--------|-----------|
-| `/api/Usuario` | Usuários do sistema |
-| `/api/UserType` | Tipos de usuário (roles/permissões) |
-| `/api/Entrega` | Registro de entregas |
-| `/api/Veiculo` | Gestão de veículos |
-| `/api/Endereco` | Endereços associados |
+## 📦 Endpoints da API
+
+### **Usuário**
+| Método | Endpoint | Descrição |
+|-------|----------|-----------|
+| GET | `/api/Usuario/{id}` | Buscar usuário por ID |
+| GET | `/api/Usuario` | Listar todos os usuários |
+| POST | `/api/Usuario` | Criar um novo usuário |
+| PUT | `/api/Usuario/{id}` | Editar um usuário |
+| DELETE | `/api/Usuario/{id}` | Deletar usuário |
+
+---
+
+### **Tipo de Usuário**
+| Método | Endpoint | Descrição |
+|-------|----------|-----------|
+| GET | `/api/UserType/{id}` | Buscar Tipo de Usuário por ID |
+| GET | `/api/UserType` | Listar todos os Tipos de Usuário |
+| POST | `/api/UserType` | Criar Tipo de Usuário |
+| PUT | `/api/UserType/{id}` | Editar Tipo de Usuário |
+| DELETE | `/api/UserType/{id}` | Deletar Tipo de Usuário |
+
+---
+
+### **Endereços**
+| Método | Endpoint | Descrição |
+|-------|----------|-----------|
+| GET | `/api/Endereco/{id}` | Buscar endereço por ID |
+| GET | `/api/Endereco` | Listar todos os endereços |
+| POST | `/api/Endereco` | Criar endereço |
+| PUT | `/api/Endereco/{id}` | Editar endereço |
+| DELETE | `/api/Endereco/{id}` | Excluir endereço |
+
+---
+
+### **Veículos**
+| Método | Endpoint | Descrição |
+|-------|----------|-----------|
+| GET | `/api/Veiculo/{id}` | Buscar veículo |
+| GET | `/api/Veiculo` | Listar veículos |
+| POST | `/api/Veiculo` | Cadastrar veículo |
+| PUT | `/api/Veiculo/{id}` | Editar veículo |
+| DELETE | `/api/Veiculo/{id}` | Deletar veículo |
+
+---
+
+### **Entregas**
+| Método | Endpoint | Descrição |
+|-------|----------|-----------|
+| GET | `/api/Entrega/{id}` | Buscar entrega |
+| GET | `/api/Entrega` | Listar entregas |
+| POST | `/api/Entrega` | Registrar entrega |
+| PUT | `/api/Entrega/{id}` | Editar entrega |
+| DELETE | `/api/Entrega/{id}` | Deletar entrega |
+
+---
+
+## 📄 Documentação Swagger
+
+Após rodar o projeto, acessar:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+<img width="1264" height="856" alt="Captura de tela 2025-11-03 221551" src="https://github.com/user-attachments/assets/e0ab2b23-3899-4c1c-ae6c-1719bc3eb363" />
+---
+
+## 🚀 Como Executar
+
+```bash
+git clone https://github.com/raphaelz3/API-SENAI-BACKEND-LOGISTICA.git
+cd API-SENAI-BACKEND-LOGISTICA
+./mvnw spring-boot:run
+```
+
+Configurar o `application.properties` com credenciais do PostgreSQL antes de iniciar.
+
+---
+
+## 🏁 Resultado
+
+Este projeto demonstra:
+
+- Arquitetura em camadas (Model → Repository → Service → Controller)
+- CRUD completo para múltiplas entidades
+- **Segurança avançada com JWT**
+- Banco PostgreSQL integrado
+- Documentação automática com Swagger
+
+---
+
+## ✨ Autor
+
+**Raphael Nascimento**  
+Desenvolvedor Back-End • SENAI  
+LinkedIn: https://www.linkedin.com/in/raphaelnascimento91
+
+
+
 
 

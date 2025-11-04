@@ -10,10 +10,10 @@ O objetivo foi construir uma API REST para gerenciamento de operações logísti
 | Tecnologia | Versão | Descrição |
 |-----------|--------|-----------|
 | Java | **24** | Linguagem principal do projeto |
-| Spring Boot | 3.x | Framework para desenvolvimento da API |
-| Spring Security | 6.x | Controle de autenticação e autorização |
+| Spring Boot | 3.2 | Framework para desenvolvimento da API |
+| Spring Security | 6.3 | Controle de autenticação e autorização |
 | JWT (JSON Web Token) | - | Segurança baseada em token |
-| PostgreSQL | 15+ | Banco de dados relacional |
+| PostgreSQL | 15 | Banco de dados relacional |
 | Swagger / OpenAPI | - | Documentação interativa da API |
 
 ---
